@@ -13,12 +13,18 @@
     },
     "version": "v3"
   },
+  "servers": [
+    {
+      "url": "https://date.nager.at"
+    }
+  ],
   "paths": {
     "/api/v3/CountryInfo/{countryCode}": {
       "get": {
         "tags": [
           "Country"
         ],
+        "description": "Get all available countries",
         "summary": "Get country info for the given country",
         "operationId": "CountryCountryInfo",
         "parameters": [
@@ -61,6 +67,7 @@
         "tags": [
           "Country"
         ],
+        "description": "Get all available countries",
         "summary": "Get all available countries",
         "operationId": "CountryAvailableCountries",
         "responses": {
@@ -101,6 +108,7 @@
         "tags": [
           "LongWeekend"
         ],
+        "description": "Get long weekends for a given country",
         "summary": "Get long weekends for a given country",
         "operationId": "LongWeekendLongWeekend",
         "parameters": [
@@ -110,7 +118,7 @@
             "description": "",
             "required": true,
             "schema": {
-              "type": "integer",
+              "type": "string",
               "format": "int32"
             }
           },
@@ -162,6 +170,7 @@
         "tags": [
           "PublicHoliday"
         ],
+        "description": "Get public holidays",
         "summary": "Get public holidays",
         "operationId": "PublicHolidayPublicHolidaysV3",
         "parameters": [
@@ -171,7 +180,7 @@
             "description": "",
             "required": true,
             "schema": {
-              "type": "integer",
+              "type": "string",
               "format": "int32"
             }
           },
@@ -284,6 +293,7 @@
         "tags": [
           "PublicHoliday"
         ],
+        "description": "Returns the upcoming public holidays for the next 365 days for the given country",
         "summary": "Returns the upcoming public holidays for the next 365 days for the given country",
         "operationId": "PublicHolidayNextPublicHolidays",
         "parameters": [
@@ -334,6 +344,7 @@
         "tags": [
           "PublicHoliday"
         ],
+        "description": "Returns the upcoming public holidays for the next 7 days",
         "summary": "Returns the upcoming public holidays for the next 7 days",
         "operationId": "PublicHolidayNextPublicHolidaysWorldwide",
         "responses": {
@@ -374,6 +385,7 @@
         "tags": [
           "Version"
         ],
+        "description": "Get version of the used Nager.Date library",
         "summary": "Get version of the used Nager.Date library",
         "operationId": "VersionGetVersion",
         "responses": {
@@ -467,7 +479,7 @@
             "format": "date-time"
           },
           "dayCount": {
-            "type": "integer",
+            "type": "string",
             "description": "DayCount",
             "format": "int32"
           },
@@ -530,7 +542,7 @@
             "nullable": true
           },
           "launchYear": {
-            "type": "integer",
+            "type": "string",
             "description": "The launch year of the public holiday",
             "format": "int32",
             "nullable": true

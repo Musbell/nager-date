@@ -110,7 +110,7 @@
             "description": "",
             "required": true,
             "schema": {
-              "type": "string",
+              "type": "integer",
               "format": "int32"
             }
           },
@@ -171,7 +171,7 @@
             "description": "",
             "required": true,
             "schema": {
-              "type": "string",
+              "type": "integer",
               "format": "int32"
             }
           },
@@ -467,7 +467,7 @@
             "format": "date-time"
           },
           "dayCount": {
-            "type": "string",
+            "type": "integer",
             "description": "DayCount",
             "format": "int32"
           },
@@ -530,7 +530,7 @@
             "nullable": true
           },
           "launchYear": {
-            "type": "string",
+            "type": "integer",
             "description": "The launch year of the public holiday",
             "format": "int32",
             "nullable": true

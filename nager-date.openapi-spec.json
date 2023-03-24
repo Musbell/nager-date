@@ -21,17 +21,15 @@
   "paths": {
     "/api/v3/CountryInfo/{countryCode}": {
       "get": {
-        "tags": [
-          "Country"
-        ],
-        "description": "Get all available countries",
+        "tags": ["Country"],
         "summary": "Get country info for the given country",
         "operationId": "CountryCountryInfo",
+        "description": "Retrieve detailed information about a specific country, including its common name, official name, country code, region, and bordering countries.",
         "parameters": [
           {
             "name": "countryCode",
             "in": "path",
-            "description": "",
+            "description": "The ISO 3166-1 alpha-2 code of the country for which information is requested.",
             "required": true,
             "schema": {
               "type": "string"
@@ -64,12 +62,10 @@
     },
     "/api/v3/AvailableCountries": {
       "get": {
-        "tags": [
-          "Country"
-        ],
-        "description": "Get all available countries",
+        "tags": ["Country"],
         "summary": "Get all available countries",
         "operationId": "CountryAvailableCountries",
+        "description": "Retrieve a list of all available countries supported by the API, including their country codes and names.",
         "responses": {
           "200": {
             "description": "Success",
@@ -105,27 +101,25 @@
     },
     "/api/v3/LongWeekend/{year}/{countryCode}": {
       "get": {
-        "tags": [
-          "LongWeekend"
-        ],
-        "description": "Get long weekends for a given country",
+        "tags": ["LongWeekend"],
         "summary": "Get long weekends for a given country",
         "operationId": "LongWeekendLongWeekend",
+        "description": "Description: Retrieve information about long weekends for a specific country and year, including start and end dates, day count, and whether a bridge day is needed.",
         "parameters": [
           {
             "name": "year",
             "in": "path",
-            "description": "",
+            "description": "The year for which long weekends information is requested.",
             "required": true,
             "schema": {
-              "type": "string",
+              "type": "integer",
               "format": "int32"
             }
           },
           {
             "name": "countryCode",
             "in": "path",
-            "description": "",
+            "description": "The ISO 3166-1 alpha-2 code of the country for which long weekends information is requested.",
             "required": true,
             "schema": {
               "type": "string"
@@ -167,27 +161,25 @@
     },
     "/api/v3/PublicHolidays/{year}/{countryCode}": {
       "get": {
-        "tags": [
-          "PublicHoliday"
-        ],
-        "description": "Get public holidays",
+        "tags": ["PublicHoliday"],
         "summary": "Get public holidays",
         "operationId": "PublicHolidayPublicHolidaysV3",
+        "description": "Retrieve information about public holidays for a specific country and year, including date, local name, English name, fixed status, global status, launch year, and types.",
         "parameters": [
           {
             "name": "year",
             "in": "path",
-            "description": "",
+            "description": "The year for which public holidays information is requested.",
             "required": true,
             "schema": {
-              "type": "string",
+              "type": "integer",
               "format": "int32"
             }
           },
           {
             "name": "countryCode",
             "in": "path",
-            "description": "",
+            "description": "The ISO 3166-1 alpha-2 code of the country for which public holidays information is requested.",
             "required": true,
             "schema": {
               "type": "string"
@@ -235,9 +227,7 @@
     },
     "/api/v3/IsTodayPublicHoliday/{countryCode}": {
       "get": {
-        "tags": [
-          "PublicHoliday"
-        ],
+        "tags": ["PublicHoliday"],
         "summary": "Is today a public holiday",
         "description": "The calculation is made on the basis of UTC time to adjust the time please use the offset.<br />\r\nThis is a special endpoint for `curl`<br /><br />\r\n200 = Today is a public holiday<br />\r\n204 = Today is not a public holiday<br /><br />\r\n`STATUSCODE=$(curl --silent --output /dev/stderr --write-out \"%{http_code}\" https://date.nager.at/Api/v2/IsTodayPublicHoliday/AT)`<br /><br />\r\n`if [ $STATUSCODE -ne 200 ]; then # error handling; fi`",
         "operationId": "PublicHolidayIsTodayPublicHoliday",
@@ -245,7 +235,7 @@
           {
             "name": "countryCode",
             "in": "path",
-            "description": "",
+            "description": "The ISO 3166-1 alpha-2 code of the country for which the check is performed.",
             "required": true,
             "schema": {
               "type": "string"
@@ -254,7 +244,7 @@
           {
             "name": "countyCode",
             "in": "query",
-            "description": "",
+            "description": "The ISO-3166-2 code of the federal state or county within the country (if applicable).",
             "schema": {
               "type": "string"
             }
@@ -262,7 +252,7 @@
           {
             "name": "offset",
             "in": "query",
-            "description": "utc timezone offset",
+            "description": "The UTC timezone offset to adjust the time for the check (default is 0).",
             "schema": {
               "maximum": 12,
               "minimum": -12,
@@ -290,15 +280,14 @@
     },
     "/api/v3/NextPublicHolidays/{countryCode}": {
       "get": {
-        "tags": [
-          "PublicHoliday"
-        ],
-        "description": "Returns the upcoming public holidays for the next 365 days for the given country",
+        "tags": ["PublicHoliday"],
         "summary": "Returns the upcoming public holidays for the next 365 days for the given country",
         "operationId": "PublicHolidayNextPublicHolidays",
+        "description": "Retrieve information about the upcoming public holidays for the next 365 days for the given country.",
         "parameters": [
           {
             "name": "countryCode",
+            "description": "The ISO 3166-1 alpha-2 code of the country for which upcoming public holidays information is requested.",
             "in": "path",
             "required": true,
             "schema": {
@@ -341,12 +330,10 @@
     },
     "/api/v3/NextPublicHolidaysWorldwide": {
       "get": {
-        "tags": [
-          "PublicHoliday"
-        ],
-        "description": "Returns the upcoming public holidays for the next 7 days",
+        "tags": ["PublicHoliday"],
         "summary": "Returns the upcoming public holidays for the next 7 days",
         "operationId": "PublicHolidayNextPublicHolidaysWorldwide",
+        "description": "Retrieve information about the upcoming public holidays for the next 7 days worldwide.",
         "responses": {
           "200": {
             "description": "Success",
@@ -382,12 +369,10 @@
     },
     "/api/v3/Version": {
       "get": {
-        "tags": [
-          "Version"
-        ],
-        "description": "Get version of the used Nager.Date library",
+        "tags": ["Version"],
         "summary": "Get version of the used Nager.Date library",
         "operationId": "VersionGetVersion",
+        "description": "Get the version of the used Nager.Date library.",
         "responses": {
           "200": {
             "description": "Success",
@@ -413,6 +398,20 @@
       }
     }
   },
+  "tags": [
+    {
+      "name": "Country"
+    },
+    {
+      "name": "LongWeekend"
+    },
+    {
+      "name": "PublicHoliday"
+    },
+    {
+      "name": "Version"
+    }
+  ],
   "components": {
     "schemas": {
       "CountryInfoDto": {
@@ -479,7 +478,7 @@
             "format": "date-time"
           },
           "dayCount": {
-            "type": "string",
+            "type": "integer",
             "description": "DayCount",
             "format": "int32"
           },
@@ -542,7 +541,7 @@
             "nullable": true
           },
           "launchYear": {
-            "type": "string",
+            "type": "integer",
             "description": "The launch year of the public holiday",
             "format": "int32",
             "nullable": true

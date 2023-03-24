@@ -2,7 +2,7 @@
   "openapi": "3.0.1",
   "info": {
     "title": "Nager.Date API - V3",
-    "description": "Nager.Date is open source software. If you would like to support the project you can award a GitHub star ⭐ or much better <a href='https://github.com/sponsors/nager'>start a sponsorship</a>",
+    "description": "The Nager.Date API provides information about public holidays, long weekends, and country details for various countries around the world. Users can retrieve information about upcoming public holidays, check if today is a public holiday, and get details about specific countries. The API is open source and supports multiple countries.",
     "contact": {
       "name": "Nager.Date on GitHub",
       "url": "https://github.com/nager/Nager.Date"
